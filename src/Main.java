@@ -9,9 +9,184 @@ public class Main {
         task7();
         task8();
         task9();
+        //Вторая часть
+        task10();
+        task11();
+        task12();
+        task13();
+        task14();
+        task15();
+        task16();
+        task17();
+        task18();
 
 
     }
+
+    private static void task18() {
+        //Задание 2.9
+        /**
+         * Программа, которая выводит в консоль таблицу умножения на 2
+         */
+        for (int i = 1; i <= 10; ++i) {
+            System.out.println("2 * " + i + " = " + 2 * i);
+        }
+    }
+
+    private static void task17() {
+        //Задание 2.8
+        /**
+         *В консоль нужно вывести все годы за последние 200 лет, когда появлялась комета,
+         * а также следующий год ее появления.
+         */
+        int currentYear = 2022;
+        int history = currentYear - 200;
+        int future = currentYear + 100;
+        for (int i = history; i <= future; i += 79) {
+            System.out.println(i);
+
+        }
+    }
+
+    private static void task16() {
+        //Задание 2.7
+        /**
+         *Программа, которая считает дни месяца по датам, определяет, какой день пятница,
+         * и выводит сообщение с напоминанием, что нужно подготовить еженедельный отчет.
+         */
+        int friday = 5;
+        for (int day = friday; day <= 31; day += 7) {
+            System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет.");
+
+
+        }
+    }
+
+    private static void task15() {
+        //Задание 2.6
+        /**
+         *Программа, которая будет выводить Василию сумму его накоплений за следующие каждые полгода
+         * в течение 9 лет
+         */
+        int deposit = 15000;
+        double total = 0;
+        String sum = "";
+        double percent = 0.07;
+        int month = 0;
+        for (total = 0; total <= 12_000_000; total++) {
+            total = total + (total * percent) / 12;
+            total = total + deposit;
+            month = month + 1;
+            sum = String.format("%.2f", total);
+            if (month % 6 == 0 && month <= 108) {
+                System.out.println(month + " месяц " + sum + " рублей");
+            }
+        }
+
+    }
+
+    private static void task14() {
+        //Задание 2.5
+        /**
+         *Видоизмените программу таким образом, чтобы в консоль выводились не все месяцы подряд,
+         * а только каждый шестой. Должны быть видны накопления за 6, 12, 18, 24 и далее месяцы.
+         */
+        int deposit = 15000;
+        double total = 0;
+        String sum = "";
+        double percent = 0.07;
+        int month = 0;
+        for (total = 0; total <= 12_000_000; total++) {
+            total = total + (total * percent) / 12;
+            total = total + deposit;
+            month = month + 1;
+            sum = String.format("%.2f", total);
+            if (month % 6 == 0) {
+                System.out.println(month + " месяц " + sum + " рублей");
+            }
+        }
+    }
+
+    private static void task13() {
+        //Задание 2.4
+        /**
+         * Вычислите и выведите в консоль, сколько месяцев Василию нужно будет копить,
+         * чтобы собрать сумму в 12 миллионов рублей при условии, что процент банка от накоплений не меняется,
+         * а всегда равен 7%.
+         */
+        int deposit = 15000;
+        double total = 0;
+        String sum = "";
+        double percent = 0.07;
+        int month = 0;
+        for (total = 0; total <= 12_000_000; total++) {
+            total = total + (total * percent) / 12;
+            total = total + deposit;
+            month = month + 1;
+            sum = String.format("%.2f", total);
+            System.out.println(month + " месяц " + sum + " рублей");
+
+
+        }
+    }
+
+    private static void task12() {
+        //Задание 2.3
+        /**
+         *В стране Y население равно 12 миллионам человек.
+         * За год рождаемость составляет 17 человек на 1000 человек, смертность - 8 человек.
+         * Рассчитайте, какая численность населения будет через 10 лет, принимая во внимание,
+         * что показатели рождаемости и смертности постоянны.
+         */
+        int population = 12_000_000;             //общая численность
+        int birth = population / 1000 * 17;      //рождаемость
+        int mortality = population / 1000 * 8;   //смертность
+        int growth = birth - mortality;          //прирост населения
+        for (int year = 1; year <= 10; year++) {
+            population = population + growth;
+            System.out.println("Год " + year + ", численность населения составляет " + population);
+        }
+    }
+
+    private static void task11() {
+        //Задание 2.2
+        /**
+         * Выведите в одну строку через пробел числа от 1 до 10, используя цикл while.
+         * На следующей строке выведите числа в обратном порядке от 10 до 1, используя оператор for.
+         */
+        int i = 1;
+        while (i <= 10) {
+            System.out.print(i + " ");
+            i++;
+        }
+        System.out.println();
+        for (i = 10; i >= 1; i--) {
+            System.out.print(i + " ");
+        }
+    }
+
+
+    private static void task10() {
+        //Задание 2.1
+        /**
+         * С помощью цикла while посчитайте, сколько месяцев потребуется, чтобы накопить 2 459 000 рублей
+         * при условии, что первоначально мы имеем 0 рублей и готовы откладывать по 15 тысяч рублей.
+         */
+        int savings = 15000; //Сумма вклада
+        double total = 0; //Сумма накопления
+        String sum = "";
+        double percent = 0.12;
+        int month = 0;
+        while (total <= 2459000) {
+            total = total + (total * percent) / 12;
+            total = total + savings;
+            month = month + 1;
+            sum = String.format("%.2f", total);
+            System.out.println("Месяц " + month + ", сумма накоплений равна " + sum + " рублей");
+        }
+        System.out.printf("%.2f", total);
+    }
+
 
     private static void task9() {
         //Задание 9
@@ -21,12 +196,15 @@ public class Main {
          */
         int salary = 29000;
         double total = 0;
+        String sum = "";
         double percent = 0.12;
         for (int i = 1; i <= 12; ++i) {
             total = total + (total * percent) / 12;
             total = total + salary;
-            System.out.println("Месяц " + i + ", сумма накоплений равна " + total + " рублей");
+            sum = String.format("%.2f", total);
+            System.out.println("Месяц " + i + ", сумма накоплений равна " + sum + " рублей");
         }
+        System.out.printf("%.2f", total);
     }
 
     private static void task8() {
