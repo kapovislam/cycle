@@ -42,8 +42,10 @@ public class Main {
         int currentYear = 2022;
         int history = currentYear - 200;
         int future = currentYear + 100;
-        for (int i = history; i <= future; i += 79) {
-            System.out.println(i);
+        for (int i = 0; i <= future; i += 79) {
+            if (i >= history && i <= future) {
+                System.out.println(i);
+            }
 
         }
     }
@@ -54,11 +56,8 @@ public class Main {
          *Программа, которая считает дни месяца по датам, определяет, какой день пятница,
          * и выводит сообщение с напоминанием, что нужно подготовить еженедельный отчет.
          */
-        int friday = 5;
-        for (int day = friday; day <= 31; day += 7) {
-            System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет.");
-
-
+        for (int friday = 5; friday <= 31; friday += 7) {
+            System.out.println("Сегодня пятница, " + friday + "-е число. Необходимо подготовить отчет.");
         }
     }
 
@@ -73,10 +72,10 @@ public class Main {
         String sum = "";
         double percent = 0.07;
         int month = 0;
-        for (total = 0; total <= 12_000_000; total++) {
-            total = total + (total * percent) / 12;
-            total = total + deposit;
-            month = month + 1;
+        while (total <= 12000000) {
+            total += (total * percent) / 12;
+            total += deposit;
+            month += 1;
             sum = String.format("%.2f", total);
             if (month % 6 == 0 && month <= 108) {
                 System.out.println(month + " месяц " + sum + " рублей");
@@ -120,9 +119,9 @@ public class Main {
         double percent = 0.07;
         int month = 0;
         for (total = 0; total <= 12_000_000; total++) {
-            total = total + (total * percent) / 12;
-            total = total + deposit;
-            month = month + 1;
+            total += (total * percent) / 12;
+            total += deposit;
+            month += 1;
             sum = String.format("%.2f", total);
             System.out.println(month + " месяц " + sum + " рублей");
 
@@ -138,12 +137,13 @@ public class Main {
          * Рассчитайте, какая численность населения будет через 10 лет, принимая во внимание,
          * что показатели рождаемости и смертности постоянны.
          */
-        int population = 12_000_000;             //общая численность
-        int birth = population / 1000 * 17;      //рождаемость
-        int mortality = population / 1000 * 8;   //смертность
-        int growth = birth - mortality;          //прирост населения
+        int population = 12_000_000;                 //общая численность
         for (int year = 1; year <= 10; year++) {
+            int birth = population / 1000 * 17;      //рождаемость
+            int mortality = population / 1000 * 8;  //смертность
+            int growth = birth - mortality;         //прирост населения
             population = population + growth;
+
             System.out.println("Год " + year + ", численность населения составляет " + population);
         }
     }
@@ -178,7 +178,7 @@ public class Main {
         double percent = 0.12;
         int month = 0;
         while (total <= 2459000) {
-            total = total + (total * percent) / 12;
+            total = total + (total * percent);
             total = total + savings;
             month = month + 1;
             sum = String.format("%.2f", total);
