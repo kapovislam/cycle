@@ -178,9 +178,9 @@ public class Main {
         double percent = 0.12;
         int month = 0;
         while (total <= 2459000) {
-            total = total + (total * percent);
-            total = total + savings;
-            month = month + 1;
+            total += (total * percent)/12;
+            total += savings;
+            month += 1;
             sum = String.format("%.2f", total);
             System.out.println("Месяц " + month + ", сумма накоплений равна " + sum + " рублей");
         }
